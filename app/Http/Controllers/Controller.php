@@ -8,8 +8,8 @@ use Illuminate\Routing\Controller as BaseController;
 
 /**
  * @OA\Info(
- *    title="My Cool API",
- *    description="An API of cool stuffs",
+ *    title="Reserve",
+ *    description="API for mobile app",
  *    version="1.0.0",
  * )
  */

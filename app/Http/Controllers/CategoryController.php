@@ -10,7 +10,45 @@ use App\Http\Requests\UpdateCategoryRequest;
 class CategoryController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Get all categories
+     * @OA\Get (
+     *     path="/api/category",
+     *     tags={"Category"},
+     *     @OA\Response(
+     *          response=200,
+     *          description="Success",
+     *          @OA\MediaType(
+     *              mediaType="application/json",
+     *              @OA\Schema(
+     *                  type="array",
+     *                  @OA\Items(
+     *                      @OA\Property(property="id", type="number", example=200),
+     *                      @OA\Property(property="title", type="string", example="Category name"),
+     *                      @OA\Property(property="enabled", type="boolean", example=true),
+     *                  )
+     *              )
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Validation error",
+     *          @OA\JsonContent(
+     *              @OA\Property(property="meta", type="object",
+     *                  @OA\Property(property="code", type="number", example=422),
+     *                  @OA\Property(property="status", type="string", example="error"),
+     *                  @OA\Property(property="message", type="object",
+     *                      @OA\Property(property="email", type="array", collectionFormat="multi",
+     *                        @OA\Items(
+     *                          type="string",
+     *                          example="Error.",
+     *                          )
+     *                      ),
+     *                  ),
+     *              ),
+     *              @OA\Property(property="data", type="object", example={}),
+     *          )
+     *      )
+     * )
      */
     public function index()
     {
